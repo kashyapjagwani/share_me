@@ -12,21 +12,10 @@ const firebaseConfig = {
   messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGE_SENDER_ID,
   appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
 };
-// const firebaseConfig = {
-//   apiKey: "AIzaSyDkAzz4phC5CSVCAIRKfH-tvQebprQSekM",
-//   authDomain: "share-me-database.firebaseapp.com",
-//   projectId: "share-me-database",
-//   storageBucket: "share-me-database.appspot.com",
-//   messagingSenderId: "752666709988",
-//   appId: "1:752666709988:web:83ce550f560a36741a41f1",
-// };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const storage = getStorage(app);
-// const projectFirestore = firebase.firestore();
-// const auth = firebase.auth();
-// const timeStamp = firebase.firestore.FieldValue.serverTimestamp;
 
 export { db, storage };
