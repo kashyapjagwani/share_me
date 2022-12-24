@@ -23,7 +23,6 @@ export default function CreatePin() {
     const imageName = `${e.target.files[0].name}`;
     const imageReader = new FileReader();
     imageReader.onload = async () => {
-      console.log(imageReader.result);
       const imageData = {
         name: imageName,
         preview: imageReader.result,
@@ -32,23 +31,6 @@ export default function CreatePin() {
       setImageAsset(imageData);
     };
     imageReader.readAsDataURL(e.target.files[0]);
-    // uploading asset to sanity
-    // if (selectedFile.type === 'image/png' || selectedFile.type === 'image/svg' || selectedFile.type === 'image/jpeg' || selectedFile.type === 'image/gif' || selectedFile.type === 'image/tiff') {
-    //   setWrongImageType(false);
-    //   setLoading(true);
-    //   client.assets
-    //     .upload('image', selectedFile, { contentType: selectedFile.type, filename: selectedFile.name })
-    //     .then((document) => {
-    //       setImageAsset(document);
-    //       setLoading(false);
-    //     })
-    //     .catch((error) => {
-    //       console.log('Upload failed:', error.message);
-    //     });
-    // } else {
-    //   setLoading(false);
-    //   setWrongImageType(true);
-    // }
   };
 
   const savePin = async () => {

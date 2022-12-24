@@ -4,19 +4,33 @@ import Spinner from "../main/Spinner";
 import { getPins } from "../../firebase/utils";
 import Link from "next/link";
 import { IoMdAdd } from "react-icons/io";
+import { filterPins } from "../../utils/helpers";
+import { useRouter } from "next/router";
 
-const Feed = ({ category }) => {
+const Feed = ({ searchTerm }) => {
   const [pins, setPins] = useState();
+  const [filteredPins, setFilteredPins] = useState();
   const [loading, setLoading] = useState(true);
 
+  const router = useRouter();
+  const { category } = router.query;
   const fetchPins = async () => {
     const pins = await getPins(category);
+    console.log(pins);
     setPins(pins);
-    setTimeout(() => setLoading(false), 500);
+    setFilteredPins(pins);
+    setLoading(false);
   };
   useEffect(() => {
     fetchPins();
   }, [category]);
+
+  useEffect(() => {
+    if (pins && pins.length) {
+      const searchResult = filterPins(pins, searchTerm);
+      setFilteredPins(searchResult);
+    }
+  }, [searchTerm]);
 
   const ideaName = category || "new";
   if (loading) {
@@ -37,7 +51,18 @@ const Feed = ({ category }) => {
       </div>
     );
   }
-  return <div>{!!pins.length && <MasonryLayout pins={pins} />}</div>;
+  if (!filteredPins.length) {
+    return (
+      <div className="flex flex-col items-center">
+        No pins match your search query, try modifying it
+      </div>
+    );
+  }
+  return (
+    <div className="mx-5">
+      {!!pins.length && <MasonryLayout pins={filteredPins} />}
+    </div>
+  );
 };
 
 export default Feed;

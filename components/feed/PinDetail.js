@@ -20,7 +20,6 @@ export default function PinDetail() {
     const pin = await getPin(pinId);
     setPinDetail(pin);
     if (withSimilar && pin) {
-      console.log(pin);
       const pins = await getSimilarPins(pinId, pin.category);
       setSimilarPins(pins);
     }
