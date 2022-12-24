@@ -4,6 +4,7 @@ import Spinner from "../../components/main/Spinner";
 import { createComment, getPin, getSimilarPins } from "../../firebase/utils";
 import { MdDownloadForOffline, MdLocationOn } from "react-icons/md";
 import MasonryLayout from "../../components/feed/MasonryLayout";
+import Link from "next/link";
 
 export default function PinDetail() {
   const [pinDetail, setPinDetail] = useState();
@@ -63,26 +64,27 @@ export default function PinDetail() {
                 <h1 className="text-4xl font-bold break-words">
                   {pinDetail.title}
                 </h1>
-                <a
+                <Link
                   href="/"
                   className="hidden md:block capitalize bg-secondaryColor text-black font-bold p-2 px-4 rounded-full shadow-sm w-fit opacity-75 hover:opacity-100"
                 >
                   {pinDetail.category}
-                </a>
+                </Link>
                 <a
                   href={pinDetail.image}
                   target="_blank"
+                  rel="noreferrer"
                   className="bg-secondaryColor p-2 text-xl rounded-full flex items-center justify-center text-dark opacity-75 hover:opacity-100"
                 >
                   <MdDownloadForOffline />
                 </a>
               </div>
-              <a
+              <Link
                 href="/"
                 className="block md:hidden my-2 capitalize bg-secondaryColor text-black font-bold p-2 px-4 rounded-full shadow-sm w-fit opacity-75 hover:opacity-100"
               >
                 {pinDetail.category}
-              </a>
+              </Link>
               <h2 className="mt-1 text-xl">{pinDetail.about}</h2>
               <div className="flex items-center gap-1 mt-3 bg-secondaryColor p-2 px-4 text-xl rounded-full flex items-center justify-center text-dark w-fit">
                 <div>

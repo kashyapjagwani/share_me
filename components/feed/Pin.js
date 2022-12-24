@@ -36,6 +36,7 @@ export default function Pin(props) {
                 <a
                   href={`${image}`}
                   target="_blank"
+                  rel="noreferrer"
                   onClick={(e) => {
                     e.stopPropagation();
                   }}

@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
-// import { feedQuery, searchQuery } from '../utils/data';
 import MasonryLayout from "./MasonryLayout";
 import Spinner from "../main/Spinner";
 import { getPins } from "../../firebase/utils";
+import Link from "next/link";
+import { IoMdAdd } from "react-icons/io";
 
 const Feed = ({ category }) => {
   const [pins, setPins] = useState();
@@ -16,28 +17,24 @@ const Feed = ({ category }) => {
   useEffect(() => {
     fetchPins();
   }, [category]);
-  // const { categoryId } = useParams();
-  // useEffect(() => {
-  //   if (categoryId) {
-  //     setLoading(true);
-  //     const query = searchQuery(categoryId);
-  //     client.fetch(query).then((data) => {
-  //       setPins(data);
-  //       setLoading(false);
-  //     });
-  //   } else {
-  //     setLoading(true);
 
-  //     client.fetch(feedQuery).then((data) => {
-  //       setPins(data);
-  //       setLoading(false);
-  //     });
-  //   }
-  // }, [categoryId]);
-  // const ideaName = categoryId || "new";
+  const ideaName = category || "new";
   if (loading) {
     return (
-      <Spinner message={`We are adding ${`ideaName`} ideas to your feed!`} />
+      <Spinner message={`We are adding ${ideaName} ideas to your feed!`} />
+    );
+  }
+  if (!pins.length) {
+    return (
+      <div className="flex flex-col items-center">
+        No pins have been posted in this category yet. Create one now!
+        <Link
+          href="/create-pin"
+          className="mt-3 bg-black text-white rounded-lg w-12 h-12 md:w-14 md:h-12 flex justify-center items-center"
+        >
+          <IoMdAdd />
+        </Link>
+      </div>
     );
   }
   return <div>{!!pins.length && <MasonryLayout pins={pins} />}</div>;
