@@ -19,9 +19,9 @@ export default function Pin(props) {
         {image && (
           <Image
             className="rounded-lg w-full"
-            width={250}
+            width={200}
             height={100}
-            style={{ minWidth: "400px" }}
+            // style={{ minWidth: "400px" }}
             src={image}
             alt="user-post"
           />
@@ -45,7 +45,7 @@ export default function Pin(props) {
                   <MdDownloadForOffline />
                 </a>
               </div>
-              <button
+              {/* <button
                 onClick={(e) => {
                   e.stopPropagation();
                   // savePin(_id);
@@ -54,7 +54,7 @@ export default function Pin(props) {
                 className="bg-red-500 opacity-70 hover:opacity-100 text-white font-bold px-5 py-1 text-base rounded-3xl hover:shadow-md outline-none"
               >
                 Save
-              </button>
+              </button> */}
             </div>
             <div className="flex items-center gap-2 bg-white text-black font-bold p-2 pl-4 pr-4 rounded-full opacity-70 hover:opacity-100 hover:shadow-md">
               <div>

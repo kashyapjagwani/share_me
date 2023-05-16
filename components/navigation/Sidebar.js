@@ -1,9 +1,8 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { RiHomeFill } from "react-icons/ri";
-import { IoIosArrowForward } from "react-icons/io";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import logo from "../../public/logo.svg";
+import logo from "../../public/logo.png";
 import Image from "next/image";
 import { categories } from "../../utils/data";
 
@@ -26,7 +25,10 @@ export default function Sidebar({ closeToggle }) {
           className="flex px-5 gap-2 my-6 pt-1 w-190 items-center"
           onClick={handleCloseSidebar}
         >
-          <Image src={logo} alt="logo" className="w-full" />
+          <Image src={logo} alt="logo" className="" width={40} />
+          <div className="text-xl font-mono font-thin tracking-tight">
+            Share Me
+          </div>
         </Link>
         <div className="flex flex-col gap-5">
           <Link
@@ -42,11 +44,11 @@ export default function Sidebar({ closeToggle }) {
           <h3 className="mt-2 px-5 text-base 2xl:text-xl">
             Discover cateogries
           </h3>
-          {categories.slice(0, categories.length - 1).map((category) => (
+          {categories.map((category) => (
             <Link
               href={`/category/${category.name}`}
               className={
-                router.pathname == `/category/${category.name}`
+                router.asPath === `/category/${category.name}`
                   ? isActiveStyle
                   : isNotActiveStyle
               }

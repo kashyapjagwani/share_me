@@ -1,13 +1,13 @@
 import Feed from "../../components/feed/Feed";
 import Layout from "../../layouts/Layout";
-import { useRouter } from "next/router";
+import { useState } from "react";
 
 export default function Category() {
-  const router = useRouter();
+  const [searchTerm, setSearchTerm] = useState("");
 
   return (
-    <Layout>
-      <Feed category={router.query.category} />
+    <Layout searchTerm={searchTerm} setSearchTerm={setSearchTerm}>
+      <Feed searchTerm={searchTerm} />
     </Layout>
   );
 }

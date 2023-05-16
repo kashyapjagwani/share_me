@@ -86,7 +86,7 @@ export default function CreatePin() {
                 </div>
                 <input
                   type="file"
-                  accept="image/jpg, image/png, image/heic, image/svg"
+                  accept="image/jpeg, image/png, image/heic, image/svg"
                   name="upload-image"
                   onChange={uploadImage}
                   className="w-0 h-0"

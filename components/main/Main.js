@@ -3,14 +3,14 @@ import { HiMenu } from "react-icons/hi";
 import { AiFillCloseCircle } from "react-icons/ai";
 import Sidebar from "../navigation/Sidebar";
 import Image from "next/image";
-import logo from "../../public/logo.svg";
+import logo from "../../public/logo.png";
 import Link from "next/link";
 
 export default function Main() {
   const [toggleSidebar, setToggleSidebar] = useState(false);
 
   return (
-    <div>
+    <div className=" mt-10">
       <div className="hidden md:flex h-screen flex-initial">
         <Sidebar closeToggle={setToggleSidebar} />
       </div>
@@ -21,8 +21,11 @@ export default function Main() {
             className="cursor-pointer"
             onClick={() => setToggleSidebar(true)}
           />
-          <Link href="/">
-            <Image src={logo} alt="logo" className="w-28" />
+          <Link href="/" className="flex">
+            <Image src={logo} alt="logo" className="w-10" />
+            <div className="text-4xl font-mono font-thin tracking-tight ml-2">
+              Share ME!
+            </div>
           </Link>
           {/* 
           <Link to={`user-profile/${user?._id}`}>

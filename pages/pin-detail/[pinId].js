@@ -4,7 +4,7 @@ import Layout from "../../layouts/Layout";
 
 export default function createPin() {
   return (
-    <Layout>
+    <Layout disableSearch>
       <PinDetail />
     </Layout>
   );

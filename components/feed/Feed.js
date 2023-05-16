@@ -16,7 +16,6 @@ const Feed = ({ searchTerm }) => {
   const { category } = router.query;
   const fetchPins = async () => {
     const pins = await getPins(category);
-    console.log(pins);
     setPins(pins);
     setFilteredPins(pins);
     setLoading(false);
@@ -40,7 +39,7 @@ const Feed = ({ searchTerm }) => {
   }
   if (!pins.length) {
     return (
-      <div className="flex flex-col items-center">
+      <div className="flex flex-col items-center mx-5">
         No pins have been posted in this category yet. Create one now!
         <Link
           href="/create-pin"
@@ -53,7 +52,7 @@ const Feed = ({ searchTerm }) => {
   }
   if (!filteredPins.length) {
     return (
-      <div className="flex flex-col items-center">
+      <div className="flex flex-col items-center mx-5">
         No pins match your search query, try modifying it
       </div>
     );

@@ -6,7 +6,7 @@ function MyApp({ Component, pageProps }) {
     <div>
       <Head>
         <title>Share Me</title>
-        <meta property="og:title" content="My page title" key="title" />
+        <meta property="og:title" content="Echo" key="title" />
       </Head>
       <Component {...pageProps} />
     </div>

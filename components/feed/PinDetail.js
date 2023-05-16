@@ -47,8 +47,8 @@ export default function PinDetail() {
     <>
       {pinDetail && (
         <div
-          className="flex xl:flex-row mx-5 p-5 flex-col bg-white"
-          style={{ maxWidth: "1500px", borderRadius: "32px" }}
+          className="flex xl:flex-row mx-5 mt-5 p-5 flex-col bg-white rounded-lg"
+          style={{ maxWidth: "1500px" }}
         >
           <div>
             <img
@@ -111,7 +111,7 @@ export default function PinDetail() {
                 >
                   <img
                     src="https://www.pngitem.com/pimgs/m/105-1055689_user-account-person-avatar-operating-system-grey-user.png"
-                    className="w-10 h-10 rounded-full cursor-pointer"
+                    className="w-9 h-8 rounded-full"
                     alt="user-profile"
                   />
                   <div className="flex flex-col">
